@@ -20,24 +20,10 @@
       </video>
 
       <button>Play/Pause</button>
+      <button id="buttonUnmute">Mute/Unmute</button>
     </main>
-    <script>
-        const video = document.querySelector('video');
-        const button = document.querySelector('button');
-        button.onclick = () => video.play();
-        function mediaPlayer(config) {
-            this.media = config.el
-          
-        }
-        mediaPlayer.prototype.play = function (){
-               this.media.play();
-        }
-
-        const player = new mediaPlayer ({el : video})
-
-
-        button.onclick = () => player.play();
-        
-    </script>
+   
+    <script type="module" src="./assets/index.js"></script>   
+   
   </body>
 </html>
