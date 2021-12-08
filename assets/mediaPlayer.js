@@ -15,7 +15,16 @@ function MediaPlayer(config) {
 }
 
 MediaPlayer.prototype.mute= function (){
-    this.media.muted ? this.media.unmute() : this.media.mute();
+    this.media.muted = true;
+}
+
+
+MediaPlayer.prototype.mute= function (){
+    this.media.muted = true;
+}
+
+MediaPlayer.prototype.mutedToggle= function (){
+    this.media.muted ? this.media.muted=false : this.media.muted = true;
 }
 
 
