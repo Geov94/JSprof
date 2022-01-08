@@ -8,6 +8,10 @@ function MediaPlayer(config) {
         this.media.paused ? this.media.play() : this.media.pause();
  }
 
+ MediaPlayer.prototype.pause = function (){
+     this.media.pause();
+}
+
  MediaPlayer.prototype._initPlugins  = function (){
     this.plugins.forEach(plugin=>{
         plugin.run(this);
