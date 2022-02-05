@@ -1,4 +1,4 @@
-///////// CLASE 1 ///////////
+///////// CLASE 1  tipos basicos ///////////
 
 console.log(" madre estoy usando typescript");
 
@@ -66,7 +66,7 @@ let someObject: object= {type:'wildcard'}
 
 
 
-//////// CLASE 2 ////////
+//////// CLASE 2 funciones////////
 
 // funciones
 
@@ -96,3 +96,6 @@ function fullName (firstName: string,lastName: string = 'Not Lastname'): string{
 const myName = fullName ('geovani')
 
 console.log(myName)
+
+/////// CLASE 3 interfaces //////
+
