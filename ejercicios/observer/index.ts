@@ -1,0 +1,64 @@
+interface observer{
+    update: (data:any)=> void
+
+}
+
+interface Subject {
+    subscribe: (observer:observer)=> void
+    unsubscribe:(observer:observer)=>void
+}
+
+class BitcoinPrice implements Subject{
+    observers:observer [] = [];
+
+    constructor(){
+        const el:HTMLInputElement = document.querySelector('#value')
+
+        el.addEventListener('input',()=>{
+            this.notify(el.value)
+        })
+
+
+    }
+    subscribe (observer:observer){
+
+        this.observers.push(observer)
+
+    }
+
+    unsubscribe(observer:observer){
+        const index= this.observers.findIndex(obs =>{
+            return obs === observer
+        })
+
+        this.observers.splice(index,1)
+
+    }
+
+    notify (data:any){
+        this.observers.forEach(observer => observer.update(data))
+    }
+}
+
+
+class PriceDisplay implements observer {
+    private el:HTMLElement;
+    constructor(){
+        this.el =document.querySelector("#price")
+    }
+
+    update(data:any){
+        this.el.innerText= data;
+
+    }
+
+}
+
+const value = new BitcoinPrice()
+const display = new PriceDisplay()
+
+value.subscribe(display);
+
+setTimeout(
+    ()=>value.unsubscribe(display),5000
+)
