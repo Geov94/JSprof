@@ -1,11 +1,11 @@
 import MediaPlayer from "../../mediaPlayer";
-import Ads from './ads'
+import Ads,{Ad} from './ads'
 
 class AdsPlugin {
     private ads:Ads;
     private player:MediaPlayer;
     private media: HTMLMediaElement;
-    
+    private currentAd: Ad;
     constructor(){
         this.ads= Ads.getInstance();
         this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
@@ -28,8 +28,12 @@ class AdsPlugin {
     }
 
     private renderAd(){
+        if (this.currentAd){
+            return;
+        }
         const ad = this.ads.getAd();
-        console.log(ad);
+        this.currentAd = ad;
+        console.log(this.currentAd);
 
     }
 }
