@@ -2,6 +2,7 @@ class MediaPlayer {
 
     media: HTMLMediaElement;
     plugins:Array<any>; 
+    container: HTMLElement;
 
 
     constructor(config) {
@@ -9,6 +10,7 @@ class MediaPlayer {
         this.media = config.el;
         this.plugins = config.plugins || [];
         this.initPlugins();
+        this.initPlayer();
 
     }
     play() {
@@ -17,6 +19,17 @@ class MediaPlayer {
     pause() {
         this.media.pause();
     }
+
+    initPlayer(){
+        this.container = document.createElement('div');
+        this.container.style.position='relative';
+        this.media.parentNode.insertBefore(this.container,this.media);
+        this.container.appendChild(this.media)
+    }
+
+
+
+
     private initPlugins() {
         this.plugins.forEach(plugin => {
             plugin.run(this);
