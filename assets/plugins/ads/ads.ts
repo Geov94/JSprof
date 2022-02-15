@@ -82,7 +82,7 @@ const ALL_ADS: Ad[] = [
     
 class Ads {
     private static instance: Ads;
-    private ads: Ad[]
+    private ads: Ad[];
 
     private constructor (){
         this.initAds();

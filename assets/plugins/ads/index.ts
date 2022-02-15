@@ -10,7 +10,7 @@ class AdsPlugin {
     constructor(){
         this.ads= Ads.getInstance();
         this.handleTimeUpdate = this.handleTimeUpdate.bind(this);
-        this.adsContainer = document.createElement('div')
+        this.adsContainer = document.createElement('div');
     }
     run(player:MediaPlayer){
         this.player = player;
@@ -42,7 +42,7 @@ class AdsPlugin {
             <img class="ads__img" src="${this.currentAd.imageUrl}" />
             <div class="ads__info">
               <h5 class="ads__title">${this.currentAd.title}</h5>
-              <p class="ads__body">${this.currentAd.body}</p>
+              <p class="ads__body">${this.currentAd.body}</p> 
             </div>
           </a>
         </div>
@@ -51,7 +51,7 @@ class AdsPlugin {
       setTimeout(() => {
         this.currentAd = null;
         this.adsContainer.innerHTML = '';
-      }, 3000);
+      }, 5000);
     }
 }
 

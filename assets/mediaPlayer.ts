@@ -9,8 +9,9 @@ class MediaPlayer {
 
         this.media = config.el;
         this.plugins = config.plugins || [];
-        this.initPlugins();
         this.initPlayer();
+        this.initPlugins();
+        
 
     }
     play() {
